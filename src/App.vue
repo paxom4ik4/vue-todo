@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header />
-    <TodoList v-bind="todos" />
+    <TodoList v-bind:todos="todos" @remove-todo="removeTodo" />
   </div>
 </template>
 
@@ -14,11 +14,20 @@ export default {
     Header,
     TodoList,
   },
-  todos: [
-    { id: 1, title: "Learn Vue", completed: false },
-    { id: 2, title: "Learn Angular", completed: false },
-    { id: 3, title: "Learn React", completed: true }
-  ]
+  data() {
+    return {
+      todos: [
+        { id: 1, title: "Learn Vue", completed: false },
+        { id: 2, title: "Learn Angular", completed: false },
+        { id: 3, title: "Learn React", completed: false },
+      ],
+    };
+  },
+  methods: {
+    removeTodo(id) {
+      this.todos = this.todos.filter((todo) => todo.id !== id);
+    },
+  },
 };
 </script>
 
