@@ -1,29 +1,30 @@
 <template>
   <div>
-    <Header />
     <AddTodo @add-todo="addTodo" />
-    <select v-model="filter">
-      <option value="all">All</option>
-      <option value="completed">Completed</option>
-      <option value="not-completed">Not Completed</option>
-    </select>
-    <TodoList
-      v-bind:todos="filteredTodos"
-      @remove-todo="removeTodo"
-      v-if="todos.length"
-    />
-    <p v-else>No Todos</p>
+    <div class="select-container">
+      <select v-model="filter">
+        <option value="all">All</option>
+        <option value="completed">Completed</option>
+        <option value="not-completed">Not Completed</option>
+      </select>
+    </div>
+    <div class="todos-container">
+      <TodoList
+        v-bind:todos="filteredTodos"
+        @remove-todo="removeTodo"
+        v-if="filteredTodos.length"
+      />
+      <p v-else>No Todos</p>
+    </div>
   </div>
 </template>
 
 <script>
-import Header from "@/components/Header";
 import TodoList from "@/components/TodoList";
 import AddTodo from "@/components/AddTodo";
 export default {
   name: "App",
   components: {
-    Header,
     TodoList,
     AddTodo,
   },
@@ -62,3 +63,16 @@ export default {
   },
 };
 </script>
+<style scoped>
+.select-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+select {
+  display: flex;
+
+  margin: 10px 0 20px 30px;
+}
+</style>

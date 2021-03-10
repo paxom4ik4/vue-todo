@@ -2,6 +2,6 @@
   <div>
     <h2>Home Pages</h2>
 
-    <a href="/todos">Todos</a>
+    <a href="/">Todos</a>
   </div>
 </template>

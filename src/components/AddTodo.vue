@@ -1,6 +1,12 @@
 <template>
   <form @submit.prevent="onSubmit">
-    <input type="text" name="" id="" v-model="title" />
+    <input
+      type="text"
+      name=""
+      id=""
+      v-model="title"
+      placeholder="What To Do?"
+    />
     <button type="submit">Create</button>
   </form>
 </template>
@@ -30,9 +36,20 @@ export default {
 
 <style scoped>
 form {
+  width: 100%;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
   display: flex;
 }
 input {
+  padding: 0 5px;
+  height: 50%;
   width: 50%;
+}
+button {
+  height: 50%;
+  margin: 0 20px;
+  padding: 0 10px;
 }
 </style>

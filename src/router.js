@@ -9,11 +9,11 @@ export default new Router({
   routes: [
     {
       path: "/",
-      component: Home,
+      component: () => import("./views/Todos.vue"),
     },
     {
-      path: "/todos",
-      component: () => import("./views/Todos.vue"),
+      path: "/Home",
+      component: Home,
     },
   ],
 });
