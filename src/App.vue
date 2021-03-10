@@ -1,35 +1,10 @@
 <template>
   <div id="app">
-    <Header />
-    <TodoList v-bind:todos="todos" @remove-todo="removeTodo" />
+    <h1>App</h1>
+
+    <router-view />
   </div>
 </template>
-
-<script>
-import Header from "@/components/Header";
-import TodoList from "@/components/TodoList";
-export default {
-  name: "App",
-  components: {
-    Header,
-    TodoList,
-  },
-  data() {
-    return {
-      todos: [
-        { id: 1, title: "Learn Vue", completed: false },
-        { id: 2, title: "Learn Angular", completed: false },
-        { id: 3, title: "Learn React", completed: false },
-      ],
-    };
-  },
-  methods: {
-    removeTodo(id) {
-      this.todos = this.todos.filter((todo) => todo.id !== id);
-    },
-  },
-};
-</script>
 
 <style>
 * {

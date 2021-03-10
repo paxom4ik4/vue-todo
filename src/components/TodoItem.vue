@@ -7,8 +7,8 @@
         id=""
         v-on:change="todo.completed = !todo.completed"
       />
-      <strong>{{ todo.id }}</strong>
-      {{ todo.title }}
+      <strong>{{ index + 1 }}</strong>
+      {{ todo.title | uppercase }}
     </span>
     <button class="rm" v-on:click="$emit('remove-todo', todo.id)">
       &times;
@@ -22,6 +22,14 @@ export default {
     todo: {
       type: Object,
       required: true,
+    },
+    index: {
+      type: Number,
+    },
+  },
+  filters: {
+    uppercase(value) {
+      return value.toUpperCase();
     },
   },
 };
